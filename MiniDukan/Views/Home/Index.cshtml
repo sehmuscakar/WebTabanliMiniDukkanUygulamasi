@@ -1,0 +1,47 @@
+﻿@*@model IQueryable<Urun>*@ 
+    <!-- burda action ile bu model üzerinde ürün dizi alıyoruz gibi düşün -->
+@model UrunlerListesiViewModel
+<h4> Mini Dükkanımıza Hoşgeldiniz </h4>
+<br />
+<h4> Peçuk dıkanimiza hun beğerhatın </h4>
+<br />
+<h4> Small shop welcome </h4>
+
+@foreach(var u in Model.Urunler)
+            {
+
+
+    <div class="card card-outline-primary m-1 p-1">
+        <div class="bg-faded p-1">
+            <h4>@u.UrunAd
+            <span class="badge badge-pill badge-primary" style="float:right">
+                <small>@u.fiyat.ToString("c")</small>
+            </span>
+            </h4>
+        </div>
+        <div class="card-text p-1">@u.Açıklama</div>
+    </div>
+
+
+    <div sayfa-model="@Model.SayfalamaBilgi" sayfa-action="Index" page-classes-enabled="true"
+         page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary"
+         class="btn-group pull-right m-1"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                <div>
+                    <h3>@u.UrunAd</h3>
+                    @u.Açıklama
+                    <h4>@u.fiyat.ToString("c")</h4> <!-- bu c sistemsel ayarları yapar-->
+                </div>
+            }
+<div sayfa-model="@Model.SayfalamaBilgi" sayfa-action="Index"></div>
